@@ -1,0 +1,38 @@
+public class SymmetricMatrix {
+    public static void main(String[] args) {
+        // Define a square matrix (2D array)
+        int[][] matrix = {
+            {1, 2, 3},
+            {2, 4, 5},
+            {3, 5, 6}
+        };
+
+        // Check if the matrix is symmetric
+        if (isSymmetric(matrix)) {
+            System.out.println("The matrix is symmetric.");
+        } else {
+            System.out.println("The matrix is not symmetric.");
+        }
+    }
+
+    // Function to check if a matrix is symmetric
+    public static boolean isSymmetric(int[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        // A matrix must be square (rows == cols) to be symmetric
+        if (rows != cols) {
+            return false;
+        }
+
+        // Check for symmetry: matrix[i][j] should equal matrix[j][i]
+        for (int i = 0; i < rows; i++) {
+            for (int j = i + 1; j < cols; j++) {
+                if (matrix[i][j] != matrix[j][i]) {
+                    return false; // If any element is not equal, the matrix is not symmetric
+                }
+            }
+        }
+        return true; // If all elements match, the matrix is symmetric
+    }
+}
